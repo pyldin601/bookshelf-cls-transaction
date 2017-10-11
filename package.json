@@ -1,0 +1,40 @@
+{
+  "name": "bookshelf-cls-transaction",
+  "version": "0.1.0",
+  "description": "Bookshelf Module",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "eslint": "eslint",
+    "build": "NODE_ENV=production babel src --out-dir lib --source-maps inline",
+    "prepublish": "npm run build"
+  },
+  "author": "Roman Lakhtadyr <roman.lakhtadyr@gmail.com>",
+  "license": "MIT",
+  "peerDependencies": {
+    "bookshelf": "*"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "bookshelf": "*",
+    "eslint": "^4.8.0",
+    "jest": "*",
+    "knex": "*",
+    "sqlite3": "*"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "bluebird": "*",
+    "cls-bluebird": "*",
+    "continuation-local-storage": "*"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  }
+}
