@@ -9,7 +9,7 @@ const knex = Knex({
 });
 
 const bookshelf = Bookshelf(knex);
-const clsTransaction = require('./index');
+const clsTransaction = require('../src');
 
 bookshelf.plugin(clsTransaction);
 
@@ -71,13 +71,10 @@ describe('Test cls transactions: Model', () => {
   });
 
   it('.load()', async () => {
-    const user = await bookshelf.transaction(async () => {
+    await bookshelf.transaction(async () => {
       const club = await new Club({ name: 'The Foos' }).save();
       const user = await new User({ name: 'Sam', club_id: club.id }).save();
       await user.load('club');
-      return user;
     });
-
-    console.log(user.toJSON());
   });
 });

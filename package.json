@@ -19,18 +19,18 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
     "bookshelf": "*",
-    "eslint": "^4.8.0",
+    "eslint": "*",
     "jest": "*",
     "knex": "*",
     "sqlite3": "*"
-  },
-  "engines": {
-    "node": ">=6.0.0"
   },
   "dependencies": {
     "bluebird": "*",
     "cls-bluebird": "*",
     "continuation-local-storage": "*"
+  },
+  "engines": {
+    "node": "^7"
   },
   "jest": {
     "transform": {

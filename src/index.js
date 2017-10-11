@@ -78,8 +78,7 @@ module.exports = (bookshelf) => {
     },
   });
 
-  // bookshelf._originalTransaction = bookshelf.transaction;
-  bookshelf._originalTransaction = (cb) => cb('foo');
+  bookshelf._originalTransaction = bookshelf.transaction;
 
   bookshelf.transaction = function (callback) {
     return this._originalTransaction(trx => (

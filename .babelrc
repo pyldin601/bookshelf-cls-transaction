@@ -5,7 +5,6 @@
   ],
   "plugins": [],
   "ignore": [
-    "node_modules",
-    "*.spec.js"
+    "node_modules"
   ]
 }
