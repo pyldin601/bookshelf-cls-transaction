@@ -1,7 +1,7 @@
 {
   "name": "bookshelf-cls-transaction",
-  "version": "0.1.0",
-  "description": "Bookshelf Module",
+  "version": "0.1.1",
+  "description": "A bookshelf plugin that uses continuation-local-storage to store transactions into call stack context. So you don't need to pass transaction into every method, that must be under transaction. This plugin does this automatically.",
   "main": "lib/index.js",
   "scripts": {
     "test": "jest",
