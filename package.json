@@ -11,6 +11,10 @@
   },
   "author": "Roman Lakhtadyr <roman.lakhtadyr@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pldin601/bookshelf-cls-transaction"
+  },
   "peerDependencies": {
     "bookshelf": "*"
   },
