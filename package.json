@@ -1,6 +1,6 @@
 {
   "name": "bookshelf-cls-transaction",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A bookshelf plugin that uses continuation-local-storage to store transactions into call stack context. So you don't need to pass transaction into every method, that must be under transaction. This plugin does this automatically.",
   "main": "lib/index.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "bookshelf": "*"
   },
   "devDependencies": {
+    "@types/knex": "0.0.62",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-0": "^6.24.1",
