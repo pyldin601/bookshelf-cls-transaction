@@ -1,5 +1,6 @@
-const cls = require('continuation-local-storage');
-const clsBluebird = require('cls-bluebird');
+import cls from 'continuation-local-storage';
+import clsBluebird from  'cls-bluebird';
+import _ from 'lodash';
 
 const ns = cls.createNamespace('bookshelf-sessions');
 const TRANSACTION_KEY = 'trx';
@@ -68,6 +69,10 @@ module.exports = (bookshelf) => {
       return bookshelf.Collection.__super__.fetchOne
         .call(this, withTransaction(options));
     },
+    fetch: function (options) {
+      return bookshelf.Collection.__super__.fetch
+        .call(this, withTransaction(options));
+    },
     load: function (relations, options) {
       return bookshelf.Collection.__super__.load
         .call(this, relations, withTransaction(options));
@@ -75,6 +80,15 @@ module.exports = (bookshelf) => {
     updatePivot: function (attributes, options) {
       return bookshelf.Collection.__super__.updatePivot
         .call(this, attributes, withTransaction(options));
+    },
+    count: function (column, options) {
+      const count = bookshelf.Collection.__super__.count;
+
+      if (!_.isString(column)) {
+        return count.call(this, withTransaction(options));
+      }
+
+      return count.call(this, column, withTransaction(options));
     },
   });
 

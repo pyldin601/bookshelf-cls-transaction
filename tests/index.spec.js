@@ -77,4 +77,10 @@ describe('Test cls transactions: Model', () => {
       await user.load('club');
     });
   });
+
+  it('.count()', async () => {
+    await bookshelf.transaction(async () => {
+      return await Club.count();
+    });
+  });
 });

@@ -1,6 +1,6 @@
 {
   "name": "bookshelf-cls-transaction",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A bookshelf plugin that uses continuation-local-storage to store transactions into call stack context. So you don't need to pass transaction into every method, that must be under transaction. This plugin does this automatically.",
   "main": "lib/index.js",
   "scripts": {
@@ -31,11 +31,19 @@
   "dependencies": {
     "bluebird": "*",
     "cls-bluebird": "*",
-    "continuation-local-storage": "*"
+    "continuation-local-storage": "*",
+    "lodash": "^4.17.4"
   },
   "engines": {
     "node": "^7"
   },
+  "keywords": [
+    "bookshelf",
+    "bookshelf-plugin",
+    "transactions",
+    "cls",
+    "continuation-local-storage"
+  ],
   "jest": {
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
