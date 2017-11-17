@@ -97,8 +97,18 @@ module.exports = (bookshelf) => {
   bookshelf.transaction = function (callback) {
     return this._originalTransaction(trx => (
       ns.runAndReturn(() => {
-        ns.set(TRANSACTION_KEY, trx);
-        return callback(trx);
+        if(isUnderTransaction()){
+          return getCurrentTransaction().transaction((nestedTrx) => {
+            ns.runAndReturn(() => {
+              ns.set(TRANSACTION_KEY, nestedTrx);
+              return callback(nestedTrx);
+            })
+          });
+        }
+        else {
+          ns.set(TRANSACTION_KEY, trx);
+          return callback(trx);
+        }
       })
     ))
   };
